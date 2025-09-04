@@ -47,7 +47,7 @@ include('database_connection.php');
             <div class="col-md-3">                				
 				
 				<div class="list-group">
-					<h3>category</h3>
+					<h3>Category</h3>
                     <?php
 
                     $query = "
@@ -60,7 +60,7 @@ include('database_connection.php');
                     {
                     ?>
                     <div class="list-group-item checkbox">
-                        <label><input type="checkbox" class="common_selector category" value="<?php echo $row['category']; ?>" > <?php echo $row['category']; ?></label>
+                        <label><input type="checkbox" class="common_selector category" value="<?php echo ucfirst($row['category']); ?>" > <?php echo $row['category']; ?></label>
                     </div>
                     <?php    
                     }
@@ -69,7 +69,7 @@ include('database_connection.php');
                 </div>
 				
 				<div class="list-group">
-					<h3> language</h3>
+					<h3> Language</h3>
 					<?php
                     $query = "
                     SELECT DISTINCT(language) FROM add_movie WHERE status = '1' ORDER BY language DESC
@@ -81,7 +81,7 @@ include('database_connection.php');
                     {
                     ?>
                     <div class="list-group-item checkbox">
-                        <label><input type="checkbox" class="common_selector language" value="<?php echo $row['language']; ?>"  > <?php echo $row['language']; ?></label>
+                        <label><input type="checkbox" class="common_selector language" value="<?php echo ucfirst($row['language']); ?>"  > <?php echo $row['language']; ?></label>
                     </div>
                     <?php
                     }
