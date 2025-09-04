@@ -38,7 +38,7 @@ if (!isset($_SESSION['admin'])) {
               <th>id</th>
               <th>Movie name</th>
               <th>Directer</th>
-              <th>categroy</th>
+              <th>category</th>
               <th>language</th>
               <th>Show</th>
               <th>Image</th>
@@ -58,7 +58,7 @@ if (mysqli_num_rows($result) > 0) {
               <td><?php echo $row['id'];?></td>
               <td><?php echo $row['movie_name'];?></td>
               <td><?php echo $row['directer'];?></td>
-              <td><?php echo $row['categroy'];?></td>
+              <td><?php echo $row['category'];?></td>
               <td><?php echo $row['language'];?></td>
               
               <td><?php echo $row['show'];?></td>
@@ -117,7 +117,7 @@ if (mysqli_num_rows($result) > 0) {
             <div class="col-12">
               <div class="form-group">
                 <label>category</label>
-                <input class="form-control" name="edit_category" id ="edit_category" value="<?php echo $row['categroy']; ?>">
+                <input class="form-control" name="edit_category" id ="edit_category" value="<?php echo $row['category']; ?>">
               </div>
             </div>
             <div class="col-12">

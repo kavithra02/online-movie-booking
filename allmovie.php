@@ -47,11 +47,11 @@ include('database_connection.php');
             <div class="col-md-3">                				
 				
 				<div class="list-group">
-					<h3>categroy</h3>
+					<h3>category</h3>
                     <?php
 
                     $query = "
-                    SELECT DISTINCT(categroy) FROM add_movie WHERE status = '1' ORDER BY categroy DESC
+                    SELECT DISTINCT(category) FROM add_movie WHERE status = '1' ORDER BY category DESC
                     ";
                     $statement = $connect->prepare($query);
                     $statement->execute();
@@ -60,7 +60,7 @@ include('database_connection.php');
                     {
                     ?>
                     <div class="list-group-item checkbox">
-                        <label><input type="checkbox" class="common_selector categroy" value="<?php echo $row['categroy']; ?>" > <?php echo $row['categroy']; ?></label>
+                        <label><input type="checkbox" class="common_selector category" value="<?php echo $row['category']; ?>" > <?php echo $row['category']; ?></label>
                     </div>
                     <?php    
                     }
@@ -130,12 +130,12 @@ $(document).ready(function(){
         $('.filter_data').html('<div id="loading" style="" ></div>');
         var action = 'fetch_data';
         var directer = get_filter('directer');
-        var categroy = get_filter('categroy');
+        var category = get_filter('category');
         var language = get_filter('language');
         $.ajax({
             url:"allmovie_fetch.php",
             method:"POST",
-            data:{action:action, directer:directer, categroy:categroy, language:language},
+            data:{action:action, directer:directer, category:category, language:language},
             success:function(data){
                 $('.filter_data').html(data);
             }

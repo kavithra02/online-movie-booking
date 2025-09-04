@@ -6,7 +6,7 @@ if (isset($_POST['submit']))
  	$movie_name= mysqli_real_escape_string($conn,$_POST['movie_name']);
  	$directer_name= mysqli_real_escape_string($conn,$_POST['directer_name']);
 	$release_date= mysqli_real_escape_string($conn,$_POST['release_date']);
-	$categroy= mysqli_real_escape_string($conn,$_POST['category']);
+	$category= mysqli_real_escape_string($conn,$_POST['category']);
 	$language= mysqli_real_escape_string($conn,$_POST['language']);
 	$tailer= mysqli_real_escape_string($conn,$_POST['tailer']);
 	$action= mysqli_real_escape_string($conn,$_POST['action']);
@@ -32,7 +32,7 @@ if(in_array($file_extension,$image_ext)){
 echo $response;
 
 $status=1;
-	$insert_record=mysqli_query($conn,"INSERT INTO add_movie (`movie_name`,`directer`,`release_date`,`categroy`,`language`,`you_tube_link`,`action`,`decription`,`show`,`image`,`status`)VALUES('".$movie_name."','".$directer_name."','".$release_date."','".$categroy."','".$language."','".$tailer."','".$action."','".$decription."','".$show."','".$filename."','".$status."')");
+	$insert_record=mysqli_query($conn,"INSERT INTO add_movie (`movie_name`,`directer`,`release_date`,`category`,`language`,`you_tube_link`,`action`,`decription`,`show`,`image`,`status`)VALUES('".$movie_name."','".$directer_name."','".$release_date."','".$category."','".$language."','".$tailer."','".$action."','".$decription."','".$show."','".$filename."','".$status."')");
 	if(!$insert_record){
 	 	echo "unsuccesfull";
 	}
@@ -52,7 +52,7 @@ if (isset($_POST['updatemovie']))
  	$e_id= mysqli_real_escape_string($conn,$_POST['e_id']);
  	$edit_movie_name= mysqli_real_escape_string($conn,$_POST['edit_movie_name']);
  	$edit_directer_name= mysqli_real_escape_string($conn,$_POST['edit_directer_name']);	
-	$edit_categroy= mysqli_real_escape_string($conn,$_POST['edit_category']);
+	$edit_category= mysqli_real_escape_string($conn,$_POST['edit_category']);
 	$edit_language= mysqli_real_escape_string($conn,$_POST['edit_language']);
 	$tailer= mysqli_real_escape_string($conn,$_POST['edit_tailer']);
 	$action= mysqli_real_escape_string($conn,$_POST['edit_action']);
@@ -87,7 +87,7 @@ echo $response;
 
 
 
-		$insert_record=mysqli_query($conn, "UPDATE `add_movie` SET `movie_name` = '$edit_movie_name', `directer` = '$edit_directer_name', `categroy` = '$edit_categroy', `language` = '$edit_language',`you_tube_link` = '$tailer',`action` = '$action',`decription` = '$decription', `show` = '$edit_show', `image` = '$image' WHERE `id` = '$e_id'"); 
+		$insert_record=mysqli_query($conn, "UPDATE `add_movie` SET `movie_name` = '$edit_movie_name', `directer` = '$edit_directer_name', `category` = '$edit_category', `language` = '$edit_language',`you_tube_link` = '$tailer',`action` = '$action',`decription` = '$decription', `show` = '$edit_show', `image` = '$image' WHERE `id` = '$e_id'"); 
 
 	if(!$insert_record){
 	 	echo "unsuccesfull";

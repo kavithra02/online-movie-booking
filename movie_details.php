@@ -70,7 +70,7 @@ include("header.php");
             <td>Directer Name</td><td><?php echo $row['directer'];?></td>
           </tr>
           <tr>
-            <td>Category</td><td><?php echo $row['categroy'];?></td>
+            <td>Category</td><td><?php echo $row['category'];?></td>
           </tr>
           <tr>
             <td>Language</td><td><?php echo $row['language'];?></td>

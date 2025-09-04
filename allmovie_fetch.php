@@ -10,11 +10,11 @@ if(isset($_POST["action"]))
 		SELECT * FROM add_movie WHERE status = '1'
 	";
 	
-	if(isset($_POST["categroy"]))
+	if(isset($_POST["category"]))
 	{
-		$categroy_filter = implode("','", $_POST["categroy"]);
+		$category_filter = implode("','", $_POST["category"]);
 		$query .= "
-		 AND categroy IN('".$categroy_filter."')
+		 AND category IN('".$category_filter."')
 		";
 	}
 	if(isset($_POST["language"]))
@@ -42,7 +42,7 @@ if(isset($_POST["action"]))
 					<p align="center"><strong><h4>'. $row['movie_name'] .'</h4></strong></p>
 					
 					Directer : '. $row['directer'] .' <br />
-					Categroy : '. $row['categroy'] .'<br />
+					category : '. $row['category'] .'<br />
 					Language : '. $row['language'] .'</p>
 					
 				</div>
@@ -60,7 +60,7 @@ if(isset($_POST["action"]))
 					<p align="center"><strong><h4>'. $row['movie_name'] .'</h4></strong></p>
 					
 					Directer : '. $row['directer'] .' <br />
-					Categroy : '. $row['categroy'] .'<br />
+					category : '. $row['category'] .'<br />
 					Language : '. $row['language'] .'</p>
 					
 				</div>

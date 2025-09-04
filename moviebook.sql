@@ -32,7 +32,7 @@ CREATE TABLE `add_movie` (
   `movie_name` varchar(100) NOT NULL,
   `directer` varchar(100) NOT NULL,
   `release_date` varchar(100) NOT NULL,
-  `categroy` varchar(100) NOT NULL,
+  `category` varchar(100) NOT NULL,
   `language` varchar(100) NOT NULL,
   `you_tube_link` varchar(250) NOT NULL,
   `show` varchar(100) NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE `add_movie` (
 -- Dumping data for table `add_movie`
 --
 
-INSERT INTO `add_movie` (`id`, `movie_name`, `directer`, `release_date`, `categroy`, `language`, `you_tube_link`, `show`, `action`, `decription`, `image`, `status`) VALUES
+INSERT INTO `add_movie` (`id`, `movie_name`, `directer`, `release_date`, `category`, `language`, `you_tube_link`, `show`, `action`, `decription`, `image`, `status`) VALUES
 (9, 'Avengers', 'Kevin Feige', 'April 11, 2012', 'Scince', 'English', 'https://www.youtube.com/embed/eOrNdBpGMv8', '21:00', 'running', '                ', 'aven.jpg', 1),
 (10, 'Rampage', 'Brad Peyton', '13 April 2018', 'Adventure ', 'Hindi', '', '', 'upcoming', '                                Jumanji is a 1995 American fantasy adventure film directed by Joe Johnston from a screenplay by Jonathan Hensleigh, Greg Taylor, and Jim Strain. Loosely based on Chris Van Allsburg\'s picture book of the same name, the film is the first installment of the Jumanji franc', 'rampage.jpg', 1),
 (13, 'Chaal Jeevi Laiye', 'Vipul Mehta', 'Jan 7, 2019', 'Drama', 'Gujarati', 'https://www.youtube.com/embed/y1NoFZPVTr0', '15:00,18:15', 'running', '                Chaal Jeevi Laiye is a story of a Father-Son’s unplanned journey to escape a workaholic existence. The duo, Aditya Parikh and his father Bipin Chandra Parikh explore the meaning of life as they meet a stranger traveler named Ketki, who takes them on a journey of surprises and realiza', 'chaal-jivi-laiye.jpg', 1),
