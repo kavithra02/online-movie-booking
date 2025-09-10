@@ -1,9 +1,6 @@
 <?php 
 session_start();
-//index.php
-
 include('database_connection.php');
-
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -17,11 +14,9 @@ include('database_connection.php');
     <title>All movie page</title>
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
-    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
-
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -30,113 +25,135 @@ include('database_connection.php');
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/nice-select.css" type="text/css">
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="  text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">    
-
 </head>
 
 <body>
 
-    <?php 
-    include("header.php");
-    ?>
-    <!-- Page Content -->
-    <div class="container">
-        <div class="row">
-        	
-            <div class="col-md-3">                				
-				
-				<div class="list-group">
-					<h3>Category</h3>
-                    <?php
+<?php include("header.php"); ?>
 
-                    $query = "
-                    SELECT DISTINCT(category) FROM add_movie WHERE status = '1' ORDER BY category DESC
-                    ";
-                    $statement = $connect->prepare($query);
-                    $statement->execute();
-                    $result = $statement->fetchAll();
-                    foreach($result as $row)
-                    {
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-3">
+
+            <!-- Category Filter -->
+            <div class="list-group">
+                <h3>Category</h3>
+                <?php
+                $query = "SELECT DISTINCT(category) FROM add_movie WHERE status = '1' ORDER BY category DESC";
+                $statement = $connect->prepare($query);
+                $statement->execute();
+                $result = $statement->fetchAll();
+                foreach($result as $row) {
                     ?>
                     <div class="list-group-item checkbox">
-                        <label><input type="checkbox" class="common_selector category" value="<?php echo ucfirst($row['category']); ?>" > <?php echo $row['category']; ?></label>
-                    </div>
-                    <?php    
-                    }
-
-                    ?>
-                </div>
-				
-				<div class="list-group">
-					<h3> Language</h3>
-					<?php
-                    $query = "
-                    SELECT DISTINCT(language) FROM add_movie WHERE status = '1' ORDER BY language DESC
-                    ";
-                    $statement = $connect->prepare($query);
-                    $statement->execute();
-                    $result = $statement->fetchAll();
-                    foreach($result as $row)
-                    {
-                    ?>
-                    <div class="list-group-item checkbox">
-                        <label><input type="checkbox" class="common_selector language" value="<?php echo ucfirst($row['language']); ?>"  > <?php echo $row['language']; ?></label>
+                        <label><input type="checkbox" class="common_selector category" value="<?php echo ucfirst($row['category']); ?>"> <?php echo $row['category']; ?></label>
                     </div>
                     <?php
-                    }
-                    ?>	
-                </div>
+                }
+                ?>
             </div>
 
-            <div class="col-md-9">
-            	<br />
-                <div class="row filter_data">
-
-                </div>
+            <!-- Language Filter -->
+            <div class="list-group mt-3">
+                <h3>Language</h3>
+                <?php
+                $query = "SELECT DISTINCT(language) FROM add_movie WHERE status = '1' ORDER BY language DESC";
+                $statement = $connect->prepare($query);
+                $statement->execute();
+                $result = $statement->fetchAll();
+                foreach($result as $row) {
+                    ?>
+                    <div class="list-group-item checkbox">
+                        <label><input type="checkbox" class="common_selector language" value="<?php echo ucfirst($row['language']); ?>"> <?php echo $row['language']; ?></label>
+                    </div>
+                    <?php
+                }
+                ?>
             </div>
+
+            <!-- Advanced Filtering -->
+            <div class="list-group mt-3">
+                <h3>Advanced Filtering</h3>
+                <label><input type="checkbox" id="advanced_toggle"> Enable advanced filtering</label>
+                <input type="text" id="advanced_search" class="form-control mt-2" 
+                       placeholder="Enter keywords (comma separated)" style="display:none;">
+                <button id="advanced_search_btn" class="btn btn-primary mt-2" style="display:none;">Search</button>
+            </div>
+
         </div>
 
+        <div class="col-md-9">
+            <br />
+            <div class="row filter_data"></div>
+        </div>
     </div>
-    <?php
+</div>
 
-    include("footer.php");
-    ?>
-<style>
+<?php include("footer.php"); ?>
 
-</style>
+<!-- JS Plugins -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery.nicescroll.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/jquery.countdown.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/mixitup.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery-ui.js"></script>
 
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery.nicescroll.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery.countdown.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/mixitup.min.js"></script>
-  
-    <script src="js/main.js"></script>
-    <script src="js/jquery-1.10.2.min.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    
 <script>
 $(document).ready(function(){
 
+    // Show/hide advanced input & button
+    $('#advanced_toggle').change(function(){
+        if($(this).is(':checked')){
+            $('#advanced_search').show();
+            $('#advanced_search_btn').show();
+        } else {
+            $('#advanced_search').hide();
+            $('#advanced_search_btn').hide();
+            $('#advanced_search').val('');
+            filter_data(); // refresh without advanced filtering
+        }
+    });
+
+    // Run filter only when user clicks Search button
+    $('#advanced_search_btn').click(function(){
+        filter_data();
+    });
+
+    // Initial load
     filter_data();
 
     function filter_data()
     {
-        $('.filter_data').html('<div id="loading" style="" ></div>');
+        $('.filter_data').html('<div id="loading">Filtering results...</div>');
         var action = 'fetch_data';
         var directer = get_filter('directer');
         var category = get_filter('category');
         var language = get_filter('language');
+        var advanced = $('#advanced_toggle').is(':checked') ? 'yes' : 'no';
+        var keywords = $('#advanced_search').val();
+
         $.ajax({
-            url:"allmovie_fetch.php",
-            method:"POST",
-            data:{action:action, directer:directer, category:category, language:language},
-            success:function(data){
+            url: "allmovie_fetch.php",
+            method: "POST",
+            data: {
+                action: action,
+                directer: directer,
+                category: category,
+                language: language,
+                advanced: advanced,
+                keywords: keywords
+            },
+            success: function(data){
                 $('.filter_data').html(data);
             }
         });
@@ -145,7 +162,7 @@ $(document).ready(function(){
     function get_filter(class_name)
     {
         var filter = [];
-        $('.'+class_name+':checked').each(function(){
+        $('.' + class_name + ':checked').each(function(){
             filter.push($(this).val());
         });
         return filter;
@@ -155,22 +172,10 @@ $(document).ready(function(){
         filter_data();
     });
 
-    $('#show_range').slider({
-        range:true,
-        min:1000,
-        max:65000,
-        values:[1000, 65000],
-        step:500,
-        stop:function(event, ui)
-        {
-            $('#show_show').html(ui.values[0] + ' - ' + ui.values[1]);
-            filter_data();
-        }
-    });
-
 });
 </script>
 
 </body>
-
 </html>
+
+
